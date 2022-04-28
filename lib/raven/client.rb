@@ -40,7 +40,7 @@ module Raven
 
       event_id = event[:event_id] || event['event_id']
       configuration.logger.info "Sending event #{event_id} to Sentry"
-      configuration.logger.info event
+      configuration.logger.info event.to_json
 
       content_type, encoded_data = encode(event)
       configuration.logger.info encoded_data
